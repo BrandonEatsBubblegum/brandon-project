@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class movement : MonoBehaviour
 {
+    public GameObject projectile;
+    public float boostSpeed;
     public float speed;
     Rigidbody rb;
     // Start is called before the first frame update
@@ -19,6 +21,16 @@ public class movement : MonoBehaviour
         float vertical = Input.GetAxis("Vertical");
         Vector3 movement = new Vector3(horizontal, 0, vertical);
         rb.AddForce(movement * speed, ForceMode.Acceleration);
+
+        /*float boostHorizontal = Input.GetAxis("Horizontal Boost");
+        float boostVertical = Input.GetAxis("Vertical Boost");
+        Vector3 boostMovement = new Vector3(boostHorizontal, 0, boostVertical);*/
+        if(Input.GetButton("Boost"))
+        {
+            rb.AddForce(movement * boostSpeed, ForceMode.Acceleration);
+            GameObject go = Instantiate(projectile, transform.position, transform.rotation);
+            go.GetComponent<MeshRenderer>().material.color = new Color(Random.Range(0f, 1f), Random.Range(0f, 1f), Random.Range(0f, 1f));
+        }
         /*        if (Input.GetKey(KeyCode.D))
                 {
                     transform.position = transform.position + transform.right * speed * Time.deltaTime;
