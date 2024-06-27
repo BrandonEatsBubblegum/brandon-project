@@ -29,7 +29,7 @@ public class movement : MonoBehaviour
         {
             rb.AddForce(movement * boostSpeed, ForceMode.Acceleration);
             GameObject go = Instantiate(projectile, transform.position, transform.rotation);
-            go.GetComponent<MeshRenderer>().material.color = new Color(Random.Range(0f, 1f), Random.Range(0f, 1f), Random.Range(0f, 1f));
+            go.GetComponentInChildren<MeshRenderer>().material.color = new Color(Random.Range(0f, 1f), Random.Range(0f, 1f), Random.Range(0f, 1f));
         }
         /*        if (Input.GetKey(KeyCode.D))
                 {
