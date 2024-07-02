@@ -76,7 +76,7 @@ public class Car : MonoBehaviour
             Rigidbody rb = collider.GetComponent<Rigidbody>();
             if (rb != null)
             {
-                rb.AddExplosionForce(explosionForce, transform.position, explosionRange, explosionForce/100, ForceMode.VelocityChange);
+                rb.AddExplosionForce(explosionForce, transform.position, explosionRange, explosionForce/10, ForceMode.VelocityChange);
             }
         }
     }
