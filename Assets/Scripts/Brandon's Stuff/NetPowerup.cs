@@ -16,7 +16,7 @@ public class NetPowerup : MonoBehaviour
     void Update()
     {
         canUse = true;
-        if(Input.GetKeyDown(KeyCode.J) && canUse)
+        if(Input.GetKey(KeyCode.J) && canUse)
         {
             canUse = false;
             Instantiate(projectile, transform.position, Quaternion.identity);
