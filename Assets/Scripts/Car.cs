@@ -17,6 +17,7 @@ public class Car : MonoBehaviour
     public ViewCube viewCube;
     bool isTrapped;
     float startTrapTime;
+    bool isTurningRight;
     AudioSource audioSource;
     Rigidbody rb;
     // Start is called before the first frame update
@@ -26,6 +27,16 @@ public class Car : MonoBehaviour
         rb.centerOfMass = Vector3.zero;
         rb.inertiaTensorRotation = Quaternion.identity;
         audioSource = GetComponent<AudioSource>();
+        StartCoroutine(Flip());
+    }
+    bool isFlipping = true;
+    IEnumerator Flip()
+    {
+        while(isFlipping)
+        {
+            yield return new WaitForSeconds(Random.Range(1, 5));
+            isTurningRight = !isTurningRight;
+        }
     }
 
     // Update is called once per frame
@@ -65,7 +76,8 @@ public class Car : MonoBehaviour
         rb.AddForce(-transform.forward * speed, ForceMode.Acceleration);
         if (viewCube.CanSeeSomething())
         {
-            rb.AddTorque(transform.up * turnSpeed, ForceMode.Acceleration);
+            int mult = isTurningRight ? 1 : -1;
+            rb.AddTorque(transform.up * turnSpeed * mult, ForceMode.Acceleration);
         }
     }
     void DoExplosion()

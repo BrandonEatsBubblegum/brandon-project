@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Floor
   - Robber
+  - Powerup
   layers:
   - Default
   - TransparentFX
@@ -16,8 +17,8 @@ TagManager:
   - player
   - projectile
   - missile
-  - 
-  - 
+  - powerup
+  - car
   - 
   - 
   - 

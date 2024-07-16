@@ -10,10 +10,11 @@ public class GameManager : MonoBehaviour
     bool hasWon = false;
     public TextMeshProUGUI winText;
     public TextMeshProUGUI timeText;
+    public TextMeshProUGUI missileText;
     public float startTime;
     float currentTime;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         main = this;
     }
@@ -33,5 +34,10 @@ public class GameManager : MonoBehaviour
             winText.gameObject.SetActive(true);
             winText.text = "You caught the robbers in " + currentTime.ToString("#.##") + " seconds!";
         }
+    }
+
+    public void UpdateMissileText(string newText)
+    {
+        missileText.text = newText;
     }
 }

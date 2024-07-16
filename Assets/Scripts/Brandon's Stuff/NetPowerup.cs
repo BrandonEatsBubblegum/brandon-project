@@ -4,26 +4,27 @@ using UnityEngine;
 
 public class NetPowerup : MonoBehaviour
 {
+    public int netsLeft = 3;
     public GameObject projectile;
-    bool canUse = false;
     // Start is called before the first frame update
     void Start()
     {
-        
+        GameManager.main.UpdateMissileText("Missiles: " + netsLeft);
     }
 
     // Update is called once per frame
     void Update()
     {
-        canUse = true;
-        if(Input.GetKey(KeyCode.J) && canUse)
+        if(Input.GetKeyDown(KeyCode.J) && netsLeft > 0)
         {
-            canUse = false;
+            netsLeft -= 1;
             Instantiate(projectile, transform.position, Quaternion.identity);
+            GameManager.main.UpdateMissileText("Missiles: " + netsLeft);
         }
     }
     public void GetPowerup()
     {
-        canUse = true;
+        netsLeft += 1;
+        GameManager.main.UpdateMissileText("Missiles: " + netsLeft);
     }
 }
