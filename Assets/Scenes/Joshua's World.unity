@@ -47724,7 +47724,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   layerMask:
     serializedVersion: 2
-    m_Bits: 192
+    m_Bits: 2240
   viewCol: {fileID: 1225455760}
 --- !u!1 &1230344789
 GameObject:
