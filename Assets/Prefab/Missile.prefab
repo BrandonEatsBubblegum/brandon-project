@@ -4864,7 +4864,7 @@ MonoBehaviour:
   startSpeed: 50
   acceleration: 100
   target: {fileID: 0}
-  explosion: {fileID: 5159793025720266370, guid: b9315151051a08848999ed100bb25e4a, type: 3}
+  explosion: {fileID: 5072728138186348737, guid: 6c3ab0fc09b058f4288f9a5bd5824836, type: 3}
 --- !u!54 &2982933550932995337
 Rigidbody:
   m_ObjectHideFlags: 0

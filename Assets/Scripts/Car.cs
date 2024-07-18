@@ -20,6 +20,7 @@ public class Car : MonoBehaviour
     bool isTurningRight;
     AudioSource audioSource;
     Rigidbody rb;
+    bool canMove = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -57,6 +58,7 @@ public class Car : MonoBehaviour
         if (Time.time - startTrapTime > trapTime)
         {
             GameManager.main.OnWinCondition();
+            canMove = false;
         }
         if (Time.time - startTrapTime > explosionTime & explosionsLeft > 0)
         {
@@ -73,6 +75,10 @@ public class Car : MonoBehaviour
     }
     private void FixedUpdate()
     {
+        if (!canMove)
+        {
+            return;
+        }
         rb.AddForce(-transform.forward * speed, ForceMode.Acceleration);
         if (viewCube.CanSeeSomething())
         {

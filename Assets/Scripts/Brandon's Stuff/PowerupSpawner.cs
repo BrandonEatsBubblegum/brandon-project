@@ -9,7 +9,7 @@ public class PowerupSpawner : MonoBehaviour
     public float force = 100f;
     public float cooldownLength = 1;
     bool canSpawn = true;
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionStay(Collision collision)
     {
         if(canSpawn && collision.collider.CompareTag("Player"))
         {

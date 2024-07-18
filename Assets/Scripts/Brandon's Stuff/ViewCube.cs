@@ -6,34 +6,22 @@ using UnityEngine;
 public class ViewCube : MonoBehaviour
 {
     public LayerMask layerMask;
-    List<Collider> colliders = new List<Collider>();
+    Collider[] colliders = new Collider[0];
+    public Collider viewCol;
     // Start is called before the first frame update
     void Start()
     {
-        
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        
-    }
-    private void OnTriggerEnter(Collider other)
-    {
-        if((layerMask.value & (1 << other.transform.gameObject.layer)) > 0)
-        {
-            colliders.Add(other);
-        }
-    }
-    private void OnTriggerExit(Collider other)
-    {
-        if ((layerMask.value & (1 << other.transform.gameObject.layer)) > 0)
-        {
-            colliders.Remove(other);
-        }
+        Collider[] cols = Physics.OverlapBox(viewCol.transform.position, viewCol.transform.lossyScale, viewCol.transform.rotation, layerMask);
+        Debug.Log(cols.Length);
+        colliders = cols;
     }
     public bool CanSeeSomething()
     {
-        return colliders.Count > 0;
+        return colliders.Length > 0;
     }
 }

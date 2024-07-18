@@ -17,10 +17,18 @@ public class NetPowerup : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.J) && netsLeft > 0)
         {
-            netsLeft -= 1;
-            Instantiate(projectile, transform.position, Quaternion.identity);
-            GameManager.main.UpdateMissileText("Missiles: " + netsLeft);
+            SpawnNet();
         }
+        if (Input.GetKey(KeyCode.K) && netsLeft > 0)
+        {
+            SpawnNet();
+        }
+    }
+    void SpawnNet()
+    {
+        netsLeft -= 1;
+        Instantiate(projectile, transform.position, Quaternion.identity);
+        GameManager.main.UpdateMissileText("Missiles: " + netsLeft);
     }
     public void GetPowerup()
     {
