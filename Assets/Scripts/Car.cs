@@ -14,6 +14,7 @@ public class Car : MonoBehaviour
     public float trapTime;
     public float explosionsLeft = 3;
     public AudioClip explosionSound;
+    public GameObject explosionObject;
     public ViewCube viewCube;
     bool isTrapped;
     float startTrapTime;
@@ -97,5 +98,6 @@ public class Car : MonoBehaviour
                 rb.AddExplosionForce(explosionForce, transform.position, explosionRange, explosionForce/10, ForceMode.VelocityChange);
             }
         }
+        Instantiate(explosionObject, transform.position, transform.rotation);
     }
 }

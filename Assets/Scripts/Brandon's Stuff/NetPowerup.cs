@@ -30,9 +30,9 @@ public class NetPowerup : MonoBehaviour
         Instantiate(projectile, transform.position, Quaternion.identity);
         GameManager.main.UpdateMissileText("Missiles: " + netsLeft);
     }
-    public void GetPowerup()
+    public void GetPowerup(int amount)
     {
-        netsLeft += 1;
+        netsLeft += amount;
         GameManager.main.UpdateMissileText("Missiles: " + netsLeft);
     }
 }

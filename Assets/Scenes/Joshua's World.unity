@@ -13254,7 +13254,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tag: Powerup
-  radius: 15
+  radius: 1e+13
   force: 500
 --- !u!1 &338804216
 GameObject:
@@ -62857,6 +62857,7 @@ MonoBehaviour:
   trapTime: 7
   explosionsLeft: 4
   explosionSound: {fileID: 8300000, guid: b85c291faa1d15847a1e0bcfc7f33534, type: 3}
+  explosionObject: {fileID: 832226914081998223, guid: aa548ecb197b1db429c69fe795d70826, type: 3}
   viewCube: {fileID: 1225455763}
 --- !u!82 &1612530177
 AudioSource:
